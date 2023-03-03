@@ -1,7 +1,16 @@
+import { useLoaderData } from "@remix-run/react";
+
+export const loader = () =>{
+  return {
+    name: "world"
+  };
+}
+
 export default function Index() {
+  const data = useLoaderData<typeof loader>();
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>Welcome to Remix</h1>
+      <h1>Hi {data.name} 👋 - Welcome to Remix</h1>
       <ul>
         <li>
           <a
